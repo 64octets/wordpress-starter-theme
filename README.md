@@ -2,9 +2,12 @@
 Alpha Starter Theme
 ===
 
-Hi. I'm a starter theme called  `Alpha`, based `underscores`, but with some cool features! I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
+Install and just type "gulp" in the command line and you are ready to harness the power of awesomeness.
 
-My ultra-minimal CSS might make me look like theme tartare but that means less stuff to get in your way when you're designing your awesome theme. Here are some of the other more interesting things you'll find here:
+Gulp will autoprefix your code, refresh your browser, and lint your javascript.
+
+Features
+--------
 
 * Dashicon support enabled for front end use
 * jQuery 1.10.2 enqueued from Google CDN
