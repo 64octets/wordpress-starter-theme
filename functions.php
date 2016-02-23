@@ -7,6 +7,12 @@
  * @package Alpha
  */
 
+if (!is_admin()) add_action("wp_enqueue_scripts", "my_jquery_enqueue", 11);
+function my_jquery_enqueue() {
+   wp_deregister_script('jquery');
+   wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js", false, null);
+   wp_enqueue_script('jquery');
+}
 
 
 if ( ! function_exists( 'alpha_setup' ) ) :
@@ -123,6 +129,8 @@ function alpha_scripts() {
 
 	wp_enqueue_script( 'alpha-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
+	wp_enqueue_script( 'alpha-scroll-anchor', get_template_directory_uri() . '/js/scroll-anchor.js', array(), '20130125', true );
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
@@ -153,6 +161,13 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+// Enable Dashicons in front end
+
+add_action( 'wp_enqueue_scripts', 'load_dashicons_front_end' );
+function load_dashicons_front_end() {
+wp_enqueue_style( 'dashicons' );
+}
 
 // Check for theme updates
 //require 'theme-update-checker.php';
